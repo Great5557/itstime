@@ -1,0 +1,79 @@
+<!DOCTYPE html><!--сообщает сайту что это html 5-->
+<html lang="en"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вкладище</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center; /*центрилизует по горизонтали*/
+            align-items: center; /*центрилизует по вертикали, но нужно задать высоту которую видит браузер*/
+            height: 100vh;/*задаёт высоту которую видит браузер*/ 
+            background-color: antiquewhite;
+            transition: all 1.25s;
+            }
+        
+        div {
+            text-align: center;
+            }
+
+        button {
+            border: 2px solid black;
+            padding: 10px 20px;
+            border-radius: 50px;
+            background: transparent; /*делает фон кнопки прозрачной*/
+            cursor: pointer;
+            outline: none;
+            }    
+
+        h1, h3{
+            animation: down 2s;
+        }
+
+        @keyframes down {
+            from {
+                transform: translateY(-50px);
+
+            }
+
+            to {
+                transform: translateY(0px);
+            }
+            
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <h3>Привет, Катя!</h3>
+        <h1>Сейчас 12:12:12</h1>
+        <button>Сменить фон</button>
+    </div>
+
+    <script>
+
+        const tii = prompt ('Как именовать Вас?')
+        document.querySelector('h3').textContent = 'Привет, ' + tii + '!'
+        document.querySelector('h1').textContent = 'Сейчас ' + new Date().toLocaleTimeString()
+        setInterval(function() {
+            document.querySelector('h1').textContent = 'Сейчас ' + new Date().toLocaleTimeString()
+        }, 1000)
+
+        const cvetaVse = ['BlueViolet','IndianRed','Khaki','LightGreen','Salmon','Yellow','White','Violet','Tomato','Turquoise','YellowGreen','DarkSlateGray','Chartreuse','CadetBlue']
+
+        let dsada = 0
+
+        document.querySelector('button').onclick = function () {
+            document.body.style.background = cvetaVse[dsada]
+            dsada++
+            if (dsada >= cvetaVse.length) dsada = 0
+        }
+
+    </script>
+
+
+</body>
+</html>
